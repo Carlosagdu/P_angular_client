@@ -7,18 +7,17 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { MatSliderModule } from '@angular/material/slider';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, AdminComponent, HomeComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSliderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
