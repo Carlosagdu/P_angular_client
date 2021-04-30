@@ -10,7 +10,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   public dateNow = new Date();
-  public dDay = new Date('April 30 2021 00:00:00');
+  public dDay = new Date('May 22 2021 00:00:00');
   milliSecondsInASecond = 1000;
   hoursInADay = 24;
   minutesInAnHour = 60;
