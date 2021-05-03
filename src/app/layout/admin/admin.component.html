@@ -1,0 +1,16 @@
+<app-dashboard-header
+  (toggleSideBarForMe)="sideBarToggler($event)"
+></app-dashboard-header>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="over" [opened]="sideBar">
+    <app-dashboard-sidebar
+      (whenItemIsClicked)="sideBarToggler($event)"
+    ></app-dashboard-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<app-dashboard-footer></app-dashboard-footer>
