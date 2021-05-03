@@ -1,0 +1,22 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>public</mat-icon>
+  </button>
+  <span>Publications</span>
+  <span class="example-spacer"></span>
+
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+    <ul fxLayout="row" fxLayoutGap="20px">
+      <li style="list-style: none">
+        <button mat-raised-button color="primary">
+          New post <mat-icon>note_add</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
+<app-publication-container></app-publication-container>
