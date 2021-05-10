@@ -9,6 +9,7 @@ import { DashboardExperienceComponent } from './shared/components/dashboard-expe
 import { DashboardEducationComponent } from './shared/components/dashboard-education/dashboard-education.component';
 import { DashboardPublicationComponent } from './shared/components/dashboard-publication/dashboard-publication.component';
 import { DashboardAboutmeComponent } from './shared/components/dashboard-aboutme/dashboard-aboutme.component';
+import { FormPublicationComponent } from './shared/components/form-publication/form-publication.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'publication',
         component: DashboardPublicationComponent,
+      },
+      {
+        path: 'publication/new',
+        component: FormPublicationComponent,
       },
       {
         path: 'aboutme',
