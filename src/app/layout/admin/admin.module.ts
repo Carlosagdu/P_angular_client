@@ -8,6 +8,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DashboardFooterComponent } from 'src/app/shared/components/dashboard-footer/dashboard-footer.component';
 import { DashboardHeaderComponent } from 'src/app/shared/components/dashboard-header/dashboard-header.component';
 import { DashboardSidebarComponent } from 'src/app/shared/components/dashboard-sidebar/dashboard-sidebar.component';
@@ -26,6 +30,9 @@ import { DashboardAboutmeComponent } from 'src/app/shared/components/dashboard-a
 import { PublicationContainerComponent } from 'src/app/shared/containers/admin/publication-container/publication-container.component';
 import { MatSortModule } from '@angular/material/sort';
 import { DialogPopupComponent } from 'src/app/shared/components/dialog-popup/dialog-popup.component';
+import { FormPublicationComponent } from 'src/app/shared/components/form-publication/form-publication.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -43,6 +50,7 @@ import { DialogPopupComponent } from 'src/app/shared/components/dialog-popup/dia
     DashboardAboutmeComponent,
     PublicationContainerComponent,
     DialogPopupComponent,
+    FormPublicationComponent,
   ],
   imports: [
     MatSidenavModule,
@@ -55,9 +63,17 @@ import { DialogPopupComponent } from 'src/app/shared/components/dialog-popup/dia
     MatTableModule,
     MatSortModule,
     MatDialogModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
     FlexLayoutModule,
     HighchartsChartModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot({
+      placeholder: 'Type here the content of your post',
+    }),
   ],
 })
 export class AdminModule {}
