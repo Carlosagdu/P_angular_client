@@ -3,17 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './layout/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './layout/admin/admin.module';
+import { HomeModule } from './layout/home/home.module';
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CommonModule,
     AdminModule,
+    HomeModule,
   ],
   bootstrap: [AppComponent],
 })
