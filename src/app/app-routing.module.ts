@@ -10,6 +10,7 @@ import { DashboardEducationComponent } from './shared/components/dashboard-educa
 import { DashboardPublicationComponent } from './shared/components/dashboard-publication/dashboard-publication.component';
 import { DashboardAboutmeComponent } from './shared/components/dashboard-aboutme/dashboard-aboutme.component';
 import { FormPublicationComponent } from './shared/components/form-publication/form-publication.component';
+import { BlogComponent } from './layout/blog/blog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,6 +51,10 @@ const routes: Routes = [
         component: DashboardAboutmeComponent,
       },
     ],
+  },
+  {
+    path: 'blog',
+    component: BlogComponent,
   },
 ];
 
