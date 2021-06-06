@@ -1,62 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, interval } from 'rxjs';
+import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
+export class AppComponent {
+  title = 'landrick-angular';
 
-  public dateNow = new Date();
-  public dDay = new Date('May 22 2021 00:00:00');
-  milliSecondsInASecond = 1000;
-  hoursInADay = 24;
-  minutesInAnHour = 60;
-  SecondsInAMinute = 60;
-
-  public timeDifference;
-  public secondsToDday;
-  public minutesToDday;
-  public hoursToDday;
-  public daysToDday;
-
-  private getTimeDifference() {
-    this.timeDifference = this.dDay.getTime() - new Date().getTime();
-    this.allocateTimeUnits(this.timeDifference);
-  }
-
-  private allocateTimeUnits(timeDifference) {
-    this.secondsToDday = Math.floor(
-      (timeDifference / this.milliSecondsInASecond) % this.SecondsInAMinute
-    );
-    this.minutesToDday = Math.floor(
-      (timeDifference / (this.milliSecondsInASecond * this.minutesInAnHour)) %
-        this.SecondsInAMinute
-    );
-    this.hoursToDday = Math.floor(
-      (timeDifference /
-        (this.milliSecondsInASecond *
-          this.minutesInAnHour *
-          this.SecondsInAMinute)) %
-        this.hoursInADay
-    );
-    this.daysToDday = Math.floor(
-      timeDifference /
-        (this.milliSecondsInASecond *
-          this.minutesInAnHour *
-          this.SecondsInAMinute *
-          this.hoursInADay)
-    );
-  }
-  ngOnInit() {
-    this.subscription = interval(10).subscribe((x) => {
-      this.getTimeDifference();
+  constructor(private router: Router) {
+    /**
+     * Unicons icon refreshed on route change.
+     */
+    router.events.forEach((event) => {
+      if (event instanceof NavigationEnd) {
+        window['Unicons']['refresh']();
+      }
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 }
