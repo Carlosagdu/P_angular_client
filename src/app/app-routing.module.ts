@@ -122,7 +122,10 @@ const routes: Routes = [
     path: "",
     component: MasterPageComponent,
     children: [
-      { path: "", component: IndexComponent },
+      { path: "", component: IndexLandingTwoComponent },
+      { path: "blog", component: PageBlogListSidebarComponent },
+      { path: "experience", component: PageHistoryComponent },
+      { path: "education", component: PageHistoryComponent },
       { path: "account-messages", component: AccountMessagesComponent },
       { path: "account-members", component: AccountMembersComponent },
       { path: "account-payments", component: AccountPaymentsComponent },
@@ -167,7 +170,6 @@ const routes: Routes = [
       { path: "index-job", component: IndexJobComponent },
       { path: "index-landing-one", component: IndexLandingOneComponent },
       { path: "index-landing-three", component: IndexLandingThreeComponent },
-      { path: "index-landing-two", component: IndexLandingTwoComponent },
       { path: "index-marketing", component: IndexMarketingComponent },
       {
         path: "index-modern-business",
@@ -201,10 +203,6 @@ const routes: Routes = [
       { path: "page-blog-detail", component: PageBlogDetailComponent },
       { path: "page-blog-grid", component: PageBlogGridComponent },
       { path: "page-blog-list", component: PageBlogListComponent },
-      {
-        path: "page-blog-list-sidebar",
-        component: PageBlogListSidebarComponent,
-      },
       { path: "page-blog-sidebar", component: PageBlogSidebarComponent },
       { path: "page-case-detail", component: PageCaseDetailComponent },
       { path: "page-cases", component: PageCasesComponent },
@@ -212,7 +210,6 @@ const routes: Routes = [
       { path: "page-contact-one", component: PageContactOneComponent },
       { path: "page-contact-three", component: PageContactThreeComponent },
       { path: "page-contact-two", component: PageContactTwoComponent },
-      { path: "page-history", component: PageHistoryComponent },
       { path: "page-invoice", component: PageInvoiceComponent },
       { path: "page-job-apply", component: PageJobApplyComponent },
       { path: "page-job-candidate", component: PageJobCandidateComponent },
@@ -240,10 +237,6 @@ const routes: Routes = [
       { path: "#", component: SwitcherComponent },
     ],
   },
-  // {
-  //   path: "**",
-  //   component: PageErrorComponent,
-  // },
 
   { path: "auth-login", component: AuthLoginComponent },
   { path: "auth-cover-login", component: AuthCoverLoginComponent },
