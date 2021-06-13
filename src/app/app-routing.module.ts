@@ -126,6 +126,7 @@ const routes: Routes = [
       { path: "blog", component: PageBlogListSidebarComponent },
       { path: "experience", component: PageHistoryComponent },
       { path: "education", component: PageHistoryComponent },
+      { path: "login", component: AuthLoginComponent },
       { path: "account-messages", component: AccountMessagesComponent },
       { path: "account-members", component: AccountMembersComponent },
       { path: "account-payments", component: AccountPaymentsComponent },
