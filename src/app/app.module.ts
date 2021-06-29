@@ -143,6 +143,9 @@ import { FooterComponent } from "./shared/footer/footer.component";
 import { SwitcherComponent } from "./shared/switcher/switcher.component";
 import { IndexOnlineLearningComponent } from "./core/components/index-online-learning/index-online-learning.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
+import { DashboardComponent } from "./pages/dashboard/dashboard.component";
+import { UserComponent } from "./pages/user/user.component";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: "horizontal",
@@ -152,6 +155,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 @NgModule({
   declarations: [
     AppComponent,
+    AdminLayoutComponent,
+    // DashboardComponent,
+    UserComponent,
     HeaderComponent,
     FooterComponent,
     AccountMembersComponent,
