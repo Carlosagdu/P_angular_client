@@ -146,6 +146,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { UserComponent } from "./pages/user/user.component";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { FooterComponentAdmin } from "./footer/footer.component";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: "horizontal",
@@ -157,6 +160,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppComponent,
     AdminLayoutComponent,
     // DashboardComponent,
+    SidebarComponent,
+    FooterComponentAdmin,
+    NavbarComponent,
     UserComponent,
     HeaderComponent,
     FooterComponent,
