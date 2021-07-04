@@ -7,8 +7,9 @@ import { MasterPageComponent } from "./core/components/master-page/master-page.c
 import { PageBlogDetailComponent } from "./core/components/page-blog-detail/page-blog-detail.component";
 import { PageBlogListSidebarComponent } from "./core/components/page-blog-list-sidebar/page-blog-list-sidebar.component";
 import { PageHistoryComponent } from "./core/components/page-history/page-history.component";
-import { DashboardComponent } from "./pages/dashboard/dashboard.component";
-import { UserComponent } from "./pages/user/user.component";
+import { UserComponent } from "./adminPages/user/user.component";
+import { PostComponent } from "./adminPages/post/post.component";
+import { TableComponent } from "./adminPages/table/table.component";
 
 const routes: Routes = [
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
     children: [
       // { path: "dashboard", component: DashboardComponent },
       { path: "user", component: UserComponent },
-      // { path: "table", component: TableComponent },
+      { path: "posts", component: TableComponent },
       // { path: "typography", component: TypographyComponent },
       // { path: "icons", component: IconsComponent },
       // { path: "maps", component: MapsComponent },
