@@ -1,60 +1,55 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './layout/home/home.component';
-import { AdminComponent } from './layout/admin/admin.component';
-import { AnalyticsComponent } from './shared/components/analytics/analytics.component';
-import { DemographicsComponent } from './shared/components/demographics/demographics.component';
-import { DashboardHomepageComponent } from './shared/components/dashboard-homepage/dashboard-homepage.component';
-import { DashboardExperienceComponent } from './shared/components/dashboard-experience/dashboard-experience.component';
-import { DashboardEducationComponent } from './shared/components/dashboard-education/dashboard-education.component';
-import { DashboardPublicationComponent } from './shared/components/dashboard-publication/dashboard-publication.component';
-import { DashboardAboutmeComponent } from './shared/components/dashboard-aboutme/dashboard-aboutme.component';
-import { FormPublicationComponent } from './shared/components/form-publication/form-publication.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { AdminLayoutComponent } from "./admin-layout/admin-layout.component";
+import { AuthLoginComponent } from "./auth/auth-login/auth-login.component";
+import { IndexLandingTwoComponent } from "./core/components/index-landing-two/index-landing-two.component";
+import { MasterPageComponent } from "./core/components/master-page/master-page.component";
+import { PageBlogDetailComponent } from "./core/components/page-blog-detail/page-blog-detail.component";
+import { PageBlogListSidebarComponent } from "./core/components/page-blog-list-sidebar/page-blog-list-sidebar.component";
+import { PageHistoryComponent } from "./core/components/page-history/page-history.component";
+import { UserComponent } from "./adminPages/user/user.component";
+import { PostComponent } from "./adminPages/post/post.component";
+import { TableComponent } from "./adminPages/table/table.component";
+import { NewPostComponent } from "./adminPages/newPost/newPost.component";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   {
-    path: 'admin',
-    component: AdminComponent,
+    path: "",
+    component: MasterPageComponent,
     children: [
+      { path: "", component: IndexLandingTwoComponent },
       {
-        path: '',
-        component: AnalyticsComponent,
+        path: "blog",
+        component: PageBlogListSidebarComponent,
       },
-      {
-        path: 'demographics',
-        component: DemographicsComponent,
-      },
-      {
-        path: 'homepage',
-        component: DashboardHomepageComponent,
-      },
-      {
-        path: 'experience',
-        component: DashboardExperienceComponent,
-      },
-      {
-        path: 'education',
-        component: DashboardEducationComponent,
-      },
-      {
-        path: 'publication',
-        component: DashboardPublicationComponent,
-      },
-      {
-        path: 'publication/new',
-        component: FormPublicationComponent,
-      },
-      {
-        path: 'aboutme',
-        component: DashboardAboutmeComponent,
-      },
+      { path: "blog/:id", component: PageBlogDetailComponent },
+      { path: "aboutme", component: PageHistoryComponent },
+      { path: "login", component: AuthLoginComponent },
+    ],
+  },
+  {
+    path: "admin",
+    component: AdminLayoutComponent,
+    children: [
+      { path: "user", component: UserComponent },
+      { path: "posts", component: TableComponent },
+      { path: "posts/new", component: NewPostComponent },
+      // { path: "typography", component: TypographyComponent },
+      // { path: "icons", component: IconsComponent },
+      // { path: "maps", component: MapsComponent },
+      // { path: "notifications", component: NotificationsComponent },
+      // { path: "upgrade", component: UpgradeComponent },
     ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: "top",
+      relativeLinkResolution: "legacy",
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
