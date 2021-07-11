@@ -1,0 +1,96 @@
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+      <h2>Pedro Perez Collado</h2>
+      <h1>pedro@perezcollado.com</h1>
+    </div>
+    <img
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="profile_picture"
+    />
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <!-- Dashboard -->
+
+  <h2 matSubheader><mat-icon>dashboard</mat-icon> Dashboard</h2>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./"
+      >Analytics</a
+    >
+  </mat-list-item>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./demographics"
+      >Demographics</a
+    >
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <!-- SECTION -->
+
+  <h2 matSubheader><mat-icon>pages</mat-icon>Sections</h2>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./homepage"
+      >Homepage</a
+    >
+  </mat-list-item>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./experience"
+      >Experience</a
+    >
+  </mat-list-item>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./education"
+      >Education</a
+    >
+  </mat-list-item>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./publication"
+      >Publication</a
+    >
+  </mat-list-item>
+
+  <mat-list-item>
+    <a
+      (click)="itemIsClicked()"
+      mat-list-item
+      routerLinkActive="list-item-active"
+      routerLink="./aboutme"
+      >About me</a
+    >
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+</mat-nav-list>
