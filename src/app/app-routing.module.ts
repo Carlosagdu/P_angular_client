@@ -10,6 +10,7 @@ import { PageHistoryComponent } from "./core/components/page-history/page-histor
 import { UserComponent } from "./adminPages/user/user.component";
 import { PostComponent } from "./adminPages/post/post.component";
 import { TableComponent } from "./adminPages/table/table.component";
+import { NewPostComponent } from "./adminPages/newPost/newPost.component";
 
 const routes: Routes = [
   {
@@ -30,9 +31,9 @@ const routes: Routes = [
     path: "admin",
     component: AdminLayoutComponent,
     children: [
-      // { path: "dashboard", component: DashboardComponent },
       { path: "user", component: UserComponent },
       { path: "posts", component: TableComponent },
+      { path: "posts/new", component: NewPostComponent },
       // { path: "typography", component: TypographyComponent },
       // { path: "icons", component: IconsComponent },
       // { path: "maps", component: MapsComponent },

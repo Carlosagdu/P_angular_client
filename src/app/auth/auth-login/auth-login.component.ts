@@ -40,7 +40,7 @@ export class AuthLoginComponent implements OnInit {
         (response) => {
           if (response.statusCode === 200) {
             this.loading = false;
-            this.router.navigateByUrl("/aboutme");
+            this.router.navigateByUrl("/admin");
             console.log(response);
           } else {
             this.loading = false;
