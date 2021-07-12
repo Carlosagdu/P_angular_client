@@ -1,14 +1,14 @@
-<div class="row">
-  <!-- FIRST COLUMN -->
-  <div class="col-md-6">
-    <div class="card login-page bg-white shadow rounded border-0">
-      <div class="card-body">
-        <h4 class="card-title text-center">Español</h4>
-        <form
-          class="login-form mt-4"
-          [formGroup]="spanishForm"
-          (ngSubmit)="onSubmitSpanish()"
-        >
+<form
+  class="login-form mt-4"
+  [formGroup]="postForm"
+  (ngSubmit)="onSubmitForm()"
+>
+  <div class="row">
+    <!-- FIRST COLUMN -->
+    <div class="col-md-6">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <h4 class="card-title text-center">Español</h4>
           <div class="row">
             <div class="col-lg-12">
               <div class="form-group position-relative">
@@ -18,13 +18,12 @@
                   type="text"
                   class="form-control pl-5"
                   placeholder="Titulo"
-                  formControlName="title"
+                  formControlName="spanishTitle"
                   name="title"
                   required
                 />
               </div>
             </div>
-
             <div class="col-lg-12">
               <div class="form-group position-relative">
                 <label>Contenido<span class="text-danger">*</span></label>
@@ -32,48 +31,21 @@
                 <textarea
                   class="form-control pl-5"
                   placeholder="contenido"
-                  formControlName="content"
+                  formControlName="contentSpanish"
                   name="content"
                   required
                 ></textarea>
               </div>
             </div>
-            <div class="mb-3 col-lg-12">
-              <label for="formFile" class="form-label"
-                >Default file input example</label
-              >
-              <input
-                class="form-control"
-                type="file"
-                id="formFile"
-                (change)="onFileSelectedSpanish($event)"
-              />
-            </div>
-            <div class="col-lg-12 mb-0">
-              <button class="btn btn-primary btn-block" type="submit">
-                <!-- <span
-                  *ngIf="loading"
-                  class="spinner-border spinner-border-sm mr-1 tex-danger"
-                >
-                </span> -->
-                Sign in
-              </button>
-            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- SECOND COLUMN -->
-  <div class="col-md-6">
-    <div class="card login-page bg-white shadow rounded border-0">
-      <div class="card-body">
-        <h4 class="card-title text-center">English</h4>
-        <form
-          class="login-form mt-4"
-          [formGroup]="englishForm"
-          (ngSubmit)="onSubmitEnglish()"
-        >
+    <!-- SECOND COLUMN -->
+    <div class="col-md-6">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <h4 class="card-title text-center">English</h4>
           <div class="row">
             <div class="col-lg-12">
               <div class="form-group position-relative">
@@ -83,7 +55,7 @@
                   type="text"
                   class="form-control pl-5"
                   placeholder="Title"
-                  formControlName="title"
+                  formControlName="englishTitle"
                   name="title"
                   required
                 />
@@ -97,37 +69,48 @@
                 <textarea
                   class="form-control pl-5"
                   placeholder="Content"
-                  formControlName="content"
+                  formControlName="contentEnglish"
                   name="content"
                   required
                 ></textarea>
               </div>
             </div>
+            <div class="col-lg-12 mb-0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SUBMIT BUTTON -->
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <div class="row">
             <div class="mb-3 col-lg-12">
               <label for="formFile" class="form-label"
                 >Default file input example</label
               >
               <input
-                formControlName="picturePath"
                 class="form-control"
                 type="file"
                 id="formFile"
-                (change)="onFileSelectedEnglish($event)"
+                (change)="onFileSelected($event)"
               />
             </div>
             <div class="col-lg-12 mb-0">
               <button class="btn btn-primary btn-block" type="submit">
-                <!-- <span
-                    *ngIf="loading"
-                    class="spinner-border spinner-border-sm mr-1 tex-danger"
-                  >
-                  </span> -->
-                Sign in
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1 tex-danger"
+                >
+                </span>
+                Enviar
               </button>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>

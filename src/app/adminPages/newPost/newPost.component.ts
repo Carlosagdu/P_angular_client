@@ -14,41 +14,58 @@ export class NewPostComponent implements OnInit {
     private router: Router
   ) {}
 
-  spanishImageFile: File = null;
-  englishImageFile: File = null;
+  selectedImage: File = null;
 
-  spanishForm = this.formBuilder.group({
-    title: "",
-    content: "",
-    pictureUrl: "",
+  postForm = this.formBuilder.group({
+    spanishTitle: "",
+    contentSpanish: "",
+    englishTitle: "",
+    contentEnglish: "",
+    pictureName: "",
   });
 
-  englishForm = this.formBuilder.group({
-    title: "",
-    content: "",
-    pictureUrl: "",
-  });
+  loading: boolean = false;
 
   ngOnInit() {}
 
-  onSubmitSpanish(): void {
+  onSubmitForm() {
+    this.loading = true;
+
     const fd = new FormData();
-    fd.append("image", this.spanishImageFile, this.spanishImageFile.name);
-    fd.append("postData", this.spanishForm.value);
-    console.log(fd.get("postData"), fd.get("image"));
-    // console.log(fd.get("image"));
-    // console.log(this.spanishForm.value);
+    fd.append("file", this.selectedImage, this.selectedImage.name);
+
+    this.http
+      .post<any>("http:///localhost:3000/posts/uploadPicture", fd, {
+        observe: "response",
+      })
+      .subscribe(
+        (response) => {
+          console.log("it upload the picture");
+          this.loading = false;
+        },
+        (error) => {
+          console.log("it didn't upload the picture");
+        }
+      );
+
+    this.http
+      .post<any>("http:///localhost:3000/posts", this.postForm.value, {
+        observe: "response",
+      })
+      .subscribe(
+        (response) => {
+          console.log("it created the posts");
+          this.loading = false;
+          this.router.navigateByUrl("/admin/posts");
+        },
+        (error) => {
+          console.log("it didn't create the posts");
+        }
+      );
   }
 
-  onSubmitEnglish(): void {
-    console.log(this.englishForm.value, this.englishImageFile);
-  }
-
-  onFileSelectedEnglish(event) {
-    this.englishImageFile = event.target.files[0];
-  }
-
-  onFileSelectedSpanish(event) {
-    this.spanishImageFile = event.target.files[0];
+  onFileSelected(event) {
+    this.selectedImage = event.target.files[0];
+    this.postForm.patchValue({ pictureName: this.selectedImage.name });
   }
 }

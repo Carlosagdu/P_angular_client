@@ -26,8 +26,12 @@ export class TableComponent implements OnInit {
 
   public posts: Post[];
 
+  loading: boolean = false;
+
   ngOnInit() {
+    this.loading = true;
     this.fetchPosts().subscribe((response) => {
+      this.loading = false;
       this.posts = response.map((item) => {
         let createdAt = item.createdAt.substring(0, 10);
         let id = item.id;
@@ -40,6 +44,6 @@ export class TableComponent implements OnInit {
   }
 
   fetchPosts(): Observable<Post[]> {
-    return this.http.get<any>("http://localhost:3000/posts");
+    return this.http.get<any>("http://localhost:3000/posts/english");
   }
 }
