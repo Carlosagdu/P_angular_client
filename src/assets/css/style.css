@@ -1892,6 +1892,10 @@ button:not(:disabled) {
   height: 450px !important;
 }
 
+#aboutMeUserInput{
+  height: 100px !important;
+}
+
 .form-group textarea.form-control {
   line-height: 25px;
 }

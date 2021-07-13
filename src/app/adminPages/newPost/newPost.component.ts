@@ -35,7 +35,7 @@ export class NewPostComponent implements OnInit {
     fd.append("file", this.selectedImage, this.selectedImage.name);
 
     this.http
-      .post<any>("http:///localhost:3000/posts/uploadPicture", fd, {
+      .post<any>("http://localhost:3000/posts/uploadPicture", fd, {
         observe: "response",
       })
       .subscribe(
@@ -49,7 +49,7 @@ export class NewPostComponent implements OnInit {
       );
 
     this.http
-      .post<any>("http:///localhost:3000/posts", this.postForm.value, {
+      .post<any>("http://localhost:3000/posts", this.postForm.value, {
         observe: "response",
       })
       .subscribe(
