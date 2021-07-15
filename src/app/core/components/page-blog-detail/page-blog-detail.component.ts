@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
+import { FormBuilder } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs";
 
@@ -24,12 +25,24 @@ interface Comment {
   styleUrls: ["./page-blog-detail.component.css"],
 })
 export class PageBlogDetailComponent implements OnInit {
-  constructor(private http: HttpClient, private actRoute: ActivatedRoute) {}
+  constructor(
+    private http: HttpClient,
+    private actRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {}
 
   public post: Post;
 
+  commentForm = this.formBuilder.group({
+    userName: "",
+    email: "",
+    comment: "",
+    postId: "",
+  });
+
   ngOnInit(): void {
     const postId = this.actRoute.snapshot.params.id;
+    this.commentForm.patchValue({ postId: postId });
     this.fetchPost(postId).subscribe((response) => {
       console.log(response);
       this.post = {
@@ -45,5 +58,23 @@ export class PageBlogDetailComponent implements OnInit {
 
   fetchPost(id: string): Observable<any> {
     return this.http.get<any>(`http://localhost:3000/posts/english/${id}`);
+  }
+
+  createComment() {}
+  onSubmitComment() {
+    this.http
+      .post<any>(
+        "http://localhost:3000/posts/addComment",
+        this.commentForm.value
+      )
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.commentForm.reset();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

@@ -1892,7 +1892,11 @@ button:not(:disabled) {
   height: 450px !important;
 }
 
-#aboutMeUserInput{
+#aboutMeUserInput {
+  height: 100px !important;
+}
+
+#message {
   height: 100px !important;
 }
 

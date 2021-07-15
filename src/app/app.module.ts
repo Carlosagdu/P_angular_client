@@ -151,6 +151,7 @@ import { FooterComponentAdmin } from "./footer/footer.component";
 import { PostComponent } from "./adminPages/post/post.component";
 import { TableComponent } from "./adminPages/table/table.component";
 import { NewPostComponent } from "./adminPages/newPost/newPost.component";
+import { AboutMeComponent } from "./adminPages/aboutme/aboutme.component";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: "horizontal",
@@ -164,6 +165,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SidebarComponent,
     PostComponent,
     NewPostComponent,
+    AboutMeComponent,
     TableComponent,
     FooterComponentAdmin,
     NavbarComponent,

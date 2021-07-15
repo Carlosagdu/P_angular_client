@@ -11,6 +11,7 @@ import { UserComponent } from "./adminPages/user/user.component";
 import { PostComponent } from "./adminPages/post/post.component";
 import { TableComponent } from "./adminPages/table/table.component";
 import { NewPostComponent } from "./adminPages/newPost/newPost.component";
+import { AboutMeComponent } from "./adminPages/aboutme/aboutme.component";
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
       { path: "user", component: UserComponent },
       { path: "posts", component: TableComponent },
       { path: "posts/new", component: NewPostComponent },
-      // { path: "typography", component: TypographyComponent },
+      { path: "about_me", component: AboutMeComponent },
       // { path: "icons", component: IconsComponent },
       // { path: "maps", component: MapsComponent },
       // { path: "notifications", component: NotificationsComponent },
