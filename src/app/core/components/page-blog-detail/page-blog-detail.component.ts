@@ -44,14 +44,19 @@ export class PageBlogDetailComponent implements OnInit {
     const postId = this.actRoute.snapshot.params.id;
     this.commentForm.patchValue({ postId: postId });
     this.fetchPost(postId).subscribe((response) => {
-      console.log(response);
       this.post = {
         id: response.englishPost.id,
         title: response.englishPost.title,
         content: response.englishPost.content,
         createdAt: response.englishPost.createdAt.substring(0, 10),
         pictureName: response.englishPost.pictureName,
-        comments: response.comments,
+        comments: response.comments.map((item) => {
+          let comment = item.comment;
+          let createdAt = item.createdAt.substring(0, 10);
+          let email = item.email;
+          let userName = item.userName;
+          return { comment, createdAt, email, userName };
+        }),
       };
     });
   }

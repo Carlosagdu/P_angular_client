@@ -8,6 +8,7 @@ interface Post {
   content: string;
   pictureName: string | null;
   createdAt: string;
+  commentsNumber: number;
 }
 
 @Component({
@@ -28,7 +29,8 @@ export class PageBlogListSidebarComponent implements OnInit {
         let title = item.title;
         let content = item.content.substring(0, 150) + "...";
         let pictureUrl = item.pictureName;
-        return { createdAt, id, title, content, pictureUrl };
+        let commentsNumber = item.postLanguage.comments.length;
+        return { createdAt, id, title, content, pictureUrl, commentsNumber };
       });
     });
   }
