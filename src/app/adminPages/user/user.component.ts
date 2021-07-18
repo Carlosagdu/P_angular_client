@@ -1,6 +1,21 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
+function ConfirmedValidator(controlName: string, matchingControlName: string) {
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+    if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
+      return;
+    }
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ confirmedValidator: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  };
+}
 
 @Component({
   selector: "user-cmp",
@@ -25,6 +40,36 @@ export class UserComponent implements OnInit {
     name: "",
     aboutMe: "",
   });
+
+  passwordForm = this.formBuilder.group(
+    {
+      currentPassword: "",
+      newPassword: ["", [Validators.required]],
+      confirmNewPassword: ["", [Validators.required]],
+      email: "pedro@perezcollado.com",
+    },
+    {
+      validator: ConfirmedValidator("newPassword", "confirmNewPassword"),
+    }
+  );
+
+  get f() {
+    return this.passwordForm.controls;
+  }
+
+  onSubmitPasswordForm() {
+    this.http
+      .post<any>("http://localhost:3000/auth/changePW", this.passwordForm.value)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.passwordForm.reset();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
 
   onSubmitForm() {
     if (this.profileImage) {
