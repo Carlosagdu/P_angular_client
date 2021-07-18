@@ -32,7 +32,7 @@ export class PageBlogListSidebarComponent implements OnInit {
         let createdAt = item.createdAt.substring(0, 10);
         let id = item.id;
         let title = item.title;
-        let content = item.content.substring(0, 200) + "...";
+        let content = item.content.substring(0, 300) + "...";
         let pictureUrl = item.pictureName;
         let commentsNumber = item.postLanguage.comments.length;
         let className = this.className;
