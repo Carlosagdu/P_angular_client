@@ -22,9 +22,11 @@ export class PageBlogListSidebarComponent implements OnInit {
 
   public posts: Post[];
   className: boolean = false;
+  loading: boolean = true;
 
   ngOnInit(): void {
     this.fetchPosts().subscribe((response) => {
+      this.loading = false;
       this.posts = response.map((item) => {
         this.className = !this.className;
         let createdAt = item.createdAt.substring(0, 10);

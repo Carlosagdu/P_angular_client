@@ -21,6 +21,8 @@ export class AuthLoginComponent implements OnInit {
     password: "",
   });
 
+  wrongPassword: boolean = false;
+
   loading: boolean = false;
   isLoggedIn: Observable<boolean>;
 
@@ -44,6 +46,7 @@ export class AuthLoginComponent implements OnInit {
             console.log(response);
           } else {
             this.loading = false;
+            this.wrongPassword = true;
             console.log("it didnt work");
           }
         },
