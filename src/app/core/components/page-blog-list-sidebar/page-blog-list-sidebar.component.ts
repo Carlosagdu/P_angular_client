@@ -9,6 +9,7 @@ interface Post {
   pictureName: string | null;
   createdAt: string;
   commentsNumber: number;
+  className: boolean;
 }
 
 @Component({
@@ -20,17 +21,28 @@ export class PageBlogListSidebarComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   public posts: Post[];
+  className: boolean = false;
 
   ngOnInit(): void {
     this.fetchPosts().subscribe((response) => {
       this.posts = response.map((item) => {
+        this.className = !this.className;
         let createdAt = item.createdAt.substring(0, 10);
         let id = item.id;
         let title = item.title;
-        let content = item.content.substring(0, 150) + "...";
+        let content = item.content.substring(0, 200) + "...";
         let pictureUrl = item.pictureName;
         let commentsNumber = item.postLanguage.comments.length;
-        return { createdAt, id, title, content, pictureUrl, commentsNumber };
+        let className = this.className;
+        return {
+          createdAt,
+          id,
+          title,
+          content,
+          pictureUrl,
+          commentsNumber,
+          className,
+        };
       });
     });
   }
