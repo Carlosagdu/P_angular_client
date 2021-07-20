@@ -8,7 +8,6 @@ import { PageBlogDetailComponent } from "./core/components/page-blog-detail/page
 import { PageBlogListSidebarComponent } from "./core/components/page-blog-list-sidebar/page-blog-list-sidebar.component";
 import { PageHistoryComponent } from "./core/components/page-history/page-history.component";
 import { UserComponent } from "./adminPages/user/user.component";
-import { PostComponent } from "./adminPages/post/post.component";
 import { TableComponent } from "./adminPages/table/table.component";
 import { NewPostComponent } from "./adminPages/newPost/newPost.component";
 import { AboutMeComponent } from "./adminPages/aboutme/aboutme.component";
@@ -36,10 +35,6 @@ const routes: Routes = [
       { path: "posts", component: TableComponent },
       { path: "posts/new", component: NewPostComponent },
       { path: "about_me", component: AboutMeComponent },
-      // { path: "icons", component: IconsComponent },
-      // { path: "maps", component: MapsComponent },
-      // { path: "notifications", component: NotificationsComponent },
-      // { path: "upgrade", component: UpgradeComponent },
     ],
   },
 ];
