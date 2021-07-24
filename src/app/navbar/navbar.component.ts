@@ -103,4 +103,10 @@ export class NavbarComponent implements OnInit {
       navbar.classList.remove("bg-white");
     }
   }
+
+  displayMessage() {
+    setTimeout(() => {
+      this.router.navigate(["/"]);
+    }, 1500);
+  }
 }
