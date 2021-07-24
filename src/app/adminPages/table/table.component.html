@@ -38,25 +38,32 @@
                 <td>
                   <ul class="list-unstyled mb-0">
                     <li class="list-inline-item">
-                      <a href="javascript:void(0)" class="text-muted comments">
-                        <i style="font-size: 25px" class="mdi mdi-eye mx-3"></i>
-                      </a>
+                      <button
+                        (click)="displayMessage(post.id)"
+                        class="comments btn btn-outline-primary mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-eye"></i>
+                      </button>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <button
+                        (click)="displayMessage(post.id)"
+                        class="comments btn btn-outline-info mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-pencil"></i>
+                      </button>
                     </li>
                     <li class="list-inline-item">
-                      <a href="javascript:void(0)" class="text-muted comments">
-                        <i
-                          style="font-size: 25px"
-                          class="mdi mdi-pencil mx-3"
-                        ></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a href="javascript:void(0)" class="text-muted comments">
-                        <i
-                          style="font-size: 25px"
-                          class="mdi mdi-delete mx-3"
-                        ></i
-                      ></a>
+                      <button
+                        (click)="open('autofocus', post.id)"
+                        class="comments btn btn-outline-danger mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-delete"></i>
+                      </button>
                     </li>
                   </ul>
                 </td>
