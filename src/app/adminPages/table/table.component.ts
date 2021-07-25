@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Component, OnInit, Type } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
@@ -21,13 +21,11 @@ import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
     <div class="modal-body">
       <p>
         <strong
-          >Are you sure you want to delete
-          <span class="text-primary">"John Doe"</span> profile?</strong
+          >Are you sure you want to delete the post with the title
+          <span class="text-primary">"{{ title }}"</span></strong
         >
       </p>
       <p>
-        All information associated to this user profile will be permanently
-        deleted.
         <span class="text-danger">This operation can not be undone.</span>
       </p>
     </div>
@@ -45,18 +43,17 @@ import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
         class="btn btn-danger"
         (click)="modal.close('Ok click')"
       >
-        Ok
+        Delete
       </button>
     </div>
   `,
 })
 export class NgbdModalConfirmAutofocus {
   constructor(public modal: NgbActiveModal) {}
-}
 
-const MODALS: { [name: string]: Type<any> } = {
-  autofocus: NgbdModalConfirmAutofocus,
-};
+  @Input() id: string;
+  @Input() title: string;
+}
 
 @Component({
   selector: "table-cmp",
@@ -96,9 +93,26 @@ export class TableComponent implements OnInit {
     console.log(id);
   }
 
-  open(name: string, id: string) {
-    this._modalService.open(MODALS[name]);
-    console.log(id);
+  open(id: string, title: string) {
+    const modalRef = this._modalService.open(NgbdModalConfirmAutofocus);
+    modalRef.componentInstance.id = id;
+    modalRef.componentInstance.title = title;
+
+    modalRef.result
+      .then((result) => {
+        this.deletePostById(id);
+      })
+      .catch((error) => {
+        console.log("it was click the cancel button");
+      });
+  }
+
+  deletePostById(id: string) {
+    this.http
+      .delete<any>(`http://localhost:3000/posts/${id}`)
+      .subscribe((response) => {
+        window.location.reload();
+      });
   }
 }
 
