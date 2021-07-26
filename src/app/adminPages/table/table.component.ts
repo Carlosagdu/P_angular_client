@@ -2,12 +2,13 @@ import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ngbd-modal-confirm-autofocus",
   template: `
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+      <h4 class="modal-title" id="modal-title">Post deletion</h4>
       <button
         type="button"
         class="close"
@@ -62,7 +63,11 @@ export class NgbdModalConfirmAutofocus {
 export class TableComponent implements OnInit {
   withAutofocus = `<button type="button" ngbAutofocus class="btn btn-danger"
       (click)="modal.close('Ok click')">Ok</button>`;
-  constructor(private http: HttpClient, private _modalService: NgbModal) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private _modalService: NgbModal
+  ) {}
   public tableData1: TableData;
   public tableData2: TableData;
 
@@ -89,8 +94,8 @@ export class TableComponent implements OnInit {
     return this.http.get<any>("http://localhost:3000/posts/english");
   }
 
-  displayMessage(id: string) {
-    console.log(id);
+  navigate(id: string) {
+    this.router.navigateByUrl(`/admin/posts/view/${id}`);
   }
 
   open(id: string, title: string) {

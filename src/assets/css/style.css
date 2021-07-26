@@ -46,6 +46,15 @@
   background-color: #2f55d4 !important;
 }
 
+#viewPostPicture {
+  text-align: center;
+  margin-left: 25%;
+}
+
+.angular-with-newlines{
+  white-space: pre-line;
+}
+
 .bg-soft-primary {
   background-color: rgba(47, 85, 212, 0.2) !important;
   border: 1px solid rgba(47, 85, 212, 0.2) !important;
