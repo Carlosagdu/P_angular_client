@@ -34,6 +34,7 @@ export class NewPostComponent implements OnInit {
     const fd = new FormData();
     fd.append("file", this.selectedImage, this.selectedImage.name);
 
+    // UPLOAD PICTURE
     this.http
       .post<any>("http://localhost:3000/posts/uploadPicture", fd, {
         observe: "response",
@@ -48,6 +49,7 @@ export class NewPostComponent implements OnInit {
         }
       );
 
+    // UPLOAD THE POST
     this.http
       .post<any>("http://localhost:3000/posts", this.postForm.value, {
         observe: "response",

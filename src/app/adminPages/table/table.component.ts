@@ -94,8 +94,12 @@ export class TableComponent implements OnInit {
     return this.http.get<any>("http://localhost:3000/posts/english");
   }
 
-  navigate(id: string) {
+  navigateToView(id: string) {
     this.router.navigateByUrl(`/admin/posts/view/${id}`);
+  }
+
+  navigateToEdit(id: string) {
+    this.router.navigateByUrl(`/admin/posts/edit/${id}`);
   }
 
   open(id: string, title: string) {
