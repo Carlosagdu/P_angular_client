@@ -78,18 +78,26 @@
                     </a>
                     <div class="commentor-detail">
                       <h6 class="mb-0">
-                        <a
-                          href="javascript:void(0)"
-                          class="text-dark media-heading"
-                          >{{ comment.userName }}</a
-                        >
+                        <a class="text-dark media-heading">{{
+                          comment.userName
+                        }}</a>
                       </h6>
                       <small class="text-muted">{{ comment.createdAt }}</small>
                     </div>
                   </div>
-                  <a href="#" class="text-muted"
-                    ><i class="mdi mdi-reply"></i> Reply</a
-                  >
+                  <ul class="list-unstyled mb-0">
+                    <li class="list-inline-item">
+                      <button
+                        (click)="deleteComment(comment.id, comment.userName)"
+                        class="btn btn-outline-danger px-2 py-1"
+                      >
+                        <i
+                          class="mdi mdi-delete-circle"
+                          style="font-size: 25px"
+                        ></i>
+                      </button>
+                    </li>
+                  </ul>
                 </div>
                 <div class="mt-3">
                   <p class="text-muted font-italic p-3 bg-light rounded">
