@@ -74,8 +74,8 @@ export class PageBlogDetailComponent implements OnInit {
       )
       .subscribe(
         (response) => {
-          console.log(response);
           this.commentForm.reset();
+          window.location.reload();
         },
         (error) => {
           console.log(error);
