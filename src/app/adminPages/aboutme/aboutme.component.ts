@@ -43,7 +43,7 @@ export class AboutMeComponent implements OnInit {
   fetchUserInformation() {
     this.http
       .get<any>(
-        "http://localhost:3000/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c"
+        "https://pedro-app-rest-api.herokuapp.com/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c"
       )
       .subscribe(
         (response) => {
@@ -64,7 +64,7 @@ export class AboutMeComponent implements OnInit {
   updateUserInformation() {
     this.http
       .patch<any>(
-        "http://localhost:3000/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c",
+        "https://pedro-app-rest-api.herokuapp.com/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c",
         this.userForm.value
       )
       .subscribe(
@@ -82,7 +82,10 @@ export class AboutMeComponent implements OnInit {
     const fd = new FormData();
     fd.append("file", this.profileImage, this.profileImage.name);
     this.http
-      .post<any>("http:///localhost:3000/posts/uploadPicture", fd)
+      .post<any>(
+        "https://pedro-app-rest-api.herokuapp.com/posts/uploadPicture",
+        fd
+      )
       .subscribe(
         (response) => {
           console.log("it upload the picture");
@@ -95,7 +98,7 @@ export class AboutMeComponent implements OnInit {
 
   fetchPostsNumber() {
     this.http
-      .get<any>("http://localhost:3000/posts/english")
+      .get<any>("https://pedro-app-rest-api.herokuapp.com/posts/english")
       .subscribe((response) => {
         this.postsNumber = response.length;
       });

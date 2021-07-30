@@ -82,7 +82,9 @@ export class EditPostComponent implements OnInit {
   }
 
   fetchPost(id: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/posts/english/${id}`);
+    return this.http.get<any>(
+      `https://pedro-app-rest-api.herokuapp.com/posts/english/${id}`
+    );
   }
 
   onSubmitForm() {
@@ -94,9 +96,13 @@ export class EditPostComponent implements OnInit {
       fd.append("file", this.selectedImage, this.selectedImage.name);
 
       this.http
-        .post<any>("http://localhost:3000/posts/uploadPicture", fd, {
-          observe: "response",
-        })
+        .post<any>(
+          "https://pedro-app-rest-api.herokuapp.com/posts/uploadPicture",
+          fd,
+          {
+            observe: "response",
+          }
+        )
         .subscribe(
           (response) => {
             console.log("it upload the picture");
@@ -111,7 +117,7 @@ export class EditPostComponent implements OnInit {
     // UPLOAD THE UPDATED POST
     this.http
       .patch<any>(
-        `http://localhost:3000/posts/${this.postId}`,
+        `https://pedro-app-rest-api.herokuapp.com/posts/${this.postId}`,
         this.postForm.value
       )
       .subscribe(

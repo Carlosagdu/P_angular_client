@@ -146,7 +146,9 @@ export class ViewPostComponent implements OnInit {
   }
 
   fetchPost(id: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/posts/english/${id}`);
+    return this.http.get<any>(
+      `https://pedro-app-rest-api.herokuapp.com/posts/english/${id}`
+    );
   }
 
   deleteComment(id: number, userName: string) {
@@ -155,17 +157,21 @@ export class ViewPostComponent implements OnInit {
 
     modalRef.result
       .then((response) => {
-        this.http.delete(`http://localhost:3000/posts/comment/${id}`).subscribe(
-          (res) => {
-            console.log(res);
-            this._modalService.open(ConfirmCommentDeleted).result.then(() => {
-              window.location.reload();
-            });
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
+        this.http
+          .delete(
+            `https://pedro-app-rest-api.herokuapp.com/posts/comment/${id}`
+          )
+          .subscribe(
+            (res) => {
+              console.log(res);
+              this._modalService.open(ConfirmCommentDeleted).result.then(() => {
+                window.location.reload();
+              });
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
       })
       .catch((error) => {
         console.log("cancel button was clicked");

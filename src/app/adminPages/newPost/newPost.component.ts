@@ -74,9 +74,13 @@ export class NewPostComponent implements OnInit {
 
     // UPLOAD PICTURE
     this.http
-      .post<any>("http://localhost:3000/posts/uploadPicture", fd, {
-        observe: "response",
-      })
+      .post<any>(
+        "https://pedro-app-rest-api.herokuapp.com/posts/uploadPicture",
+        fd,
+        {
+          observe: "response",
+        }
+      )
       .subscribe(
         (response) => {
           console.log("it upload the picture");
@@ -89,9 +93,13 @@ export class NewPostComponent implements OnInit {
 
     // UPLOAD THE POST
     this.http
-      .post<any>("http://localhost:3000/posts", this.postForm.value, {
-        observe: "response",
-      })
+      .post<any>(
+        "https://pedro-app-rest-api.herokuapp.com/posts",
+        this.postForm.value,
+        {
+          observe: "response",
+        }
+      )
       .subscribe(
         (response) => {
           console.log("it created the posts");

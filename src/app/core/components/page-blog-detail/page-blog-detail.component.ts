@@ -62,14 +62,16 @@ export class PageBlogDetailComponent implements OnInit {
   }
 
   fetchPost(id: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:3000/posts/english/${id}`);
+    return this.http.get<any>(
+      `https://pedro-app-rest-api.herokuapp.com/posts/english/${id}`
+    );
   }
 
   createComment() {}
   onSubmitComment() {
     this.http
       .post<any>(
-        "http://localhost:3000/posts/addComment",
+        "https://pedro-app-rest-api.herokuapp.com/posts/addComment",
         this.commentForm.value
       )
       .subscribe(

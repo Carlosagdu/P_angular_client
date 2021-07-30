@@ -48,6 +48,8 @@ export class IndexLandingTwoComponent implements OnInit {
   }
 
   fetchLatestPost(): Observable<any> {
-    return this.http.get<any>("http://localhost:3000/posts/latest");
+    return this.http.get<any>(
+      "https://pedro-app-rest-api.herokuapp.com/posts/latest"
+    );
   }
 }

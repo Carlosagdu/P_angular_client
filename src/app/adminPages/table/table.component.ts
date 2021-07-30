@@ -91,7 +91,9 @@ export class TableComponent implements OnInit {
   }
 
   fetchPosts(): Observable<Post[]> {
-    return this.http.get<any>("http://localhost:3000/posts/english");
+    return this.http.get<any>(
+      "https://pedro-app-rest-api.herokuapp.com/posts/english"
+    );
   }
 
   navigateToView(id: string) {
@@ -118,7 +120,7 @@ export class TableComponent implements OnInit {
 
   deletePostById(id: string) {
     this.http
-      .delete<any>(`http://localhost:3000/posts/${id}`)
+      .delete<any>(`https://pedro-app-rest-api.herokuapp.com/posts/${id}`)
       .subscribe((response) => {
         window.location.reload();
       });

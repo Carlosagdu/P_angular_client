@@ -37,7 +37,10 @@ export class AuthLoginComponent implements OnInit {
     }
 
     this.http
-      .post<any>("http://localhost:3000/auth/login", this.loginForm.value)
+      .post<any>(
+        "https://pedro-app-rest-api.herokuapp.com/auth/login",
+        this.loginForm.value
+      )
       .subscribe(
         (response) => {
           if (response.statusCode === 200) {

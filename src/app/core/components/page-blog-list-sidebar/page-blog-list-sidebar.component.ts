@@ -50,6 +50,8 @@ export class PageBlogListSidebarComponent implements OnInit {
   }
 
   fetchPosts(): Observable<any> {
-    return this.http.get<any>("http://localhost:3000/posts/english");
+    return this.http.get<any>(
+      "https://pedro-app-rest-api.herokuapp.com/posts/english"
+    );
   }
 }
