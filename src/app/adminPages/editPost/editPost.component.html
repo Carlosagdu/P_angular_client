@@ -1,0 +1,116 @@
+<form
+  class="login-form mt-4"
+  [formGroup]="postForm"
+  (ngSubmit)="onSubmitForm()"
+>
+  <div class="row">
+    <!-- FIRST COLUMN -->
+    <div class="col-md-6">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <h4 class="card-title text-center">Español</h4>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-group position-relative">
+                <label>Titulo<span class="text-danger">*</span></label>
+                <i-feather name="user" class="fea icon-sm icons"></i-feather>
+                <input
+                  type="text"
+                  class="form-control pl-5"
+                  placeholder="Titulo"
+                  formControlName="spanishTitle"
+                  name="title"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group position-relative">
+                <label>Contenido<span class="text-danger">*</span></label>
+                <i-feather name="key" class="fea icon-sm icons"></i-feather>
+                <textarea
+                  class="form-control pl-5"
+                  placeholder="contenido"
+                  formControlName="contentSpanish"
+                  name="content"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SECOND COLUMN -->
+    <div class="col-md-6">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <h4 class="card-title text-center">English</h4>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-group position-relative">
+                <label>Title<span class="text-danger">*</span></label>
+                <i-feather name="user" class="fea icon-sm icons"></i-feather>
+                <input
+                  type="text"
+                  class="form-control pl-5"
+                  placeholder="Title"
+                  formControlName="englishTitle"
+                  name="title"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-group position-relative">
+                <label>Content<span class="text-danger">*</span></label>
+                <i-feather name="key" class="fea icon-sm icons"></i-feather>
+                <textarea
+                  class="form-control pl-5"
+                  placeholder="Content"
+                  formControlName="contentEnglish"
+                  name="content"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SUBMIT BUTTON -->
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card login-page bg-white shadow rounded border-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="mb-3 col-lg-12">
+              <label for="formFile" class="form-label"
+                >Default file input example</label
+              >
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                (change)="onFileSelected($event)"
+              />
+            </div>
+            <div class="col-lg-12 mb-0">
+              <button class="btn btn-primary btn-block" type="submit">
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm mr-1 tex-danger"
+                >
+                </span>
+                Update ⭐
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

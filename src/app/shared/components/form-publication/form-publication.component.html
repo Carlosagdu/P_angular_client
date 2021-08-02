@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title class="title">New publication</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- FORM  -->
+    <form action="" [formGroup]="editorForm">
+      <!-- TITLE FIELD -->
+      <mat-form-field appearance="outline" class="title-input">
+        <mat-label class="form-labels">Title</mat-label>
+        <input formControlName="title" matInput placeholder="Placeholder" />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Type above the publication title</mat-hint>
+      </mat-form-field>
+      <quill-editor
+        [styles]="{ height: '200px' }"
+        formControlName="editor"
+      ></quill-editor>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Publish
+    </button>
+    <button mat-raised-button>Save as draft</button>
+  </mat-card-actions>
+</mat-card>

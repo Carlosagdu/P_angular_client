@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-10">
+            <h4 class="card-title">Articles</h4>
+          </div>
+          <div class="col-2">
+            <a routerLink="new">
+              <button type="button" class="btn btn-primary">
+                Create an article
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th span="1" style="width: 10%">Created at</th>
+              <th span="1" style="width: 10%">Title</th>
+              <th span="1" style="width: 60%">Content</th>
+              <th span="1" style="width: 20%">Actions</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of posts">
+                <td>
+                  {{ post.createdAt }}
+                </td>
+                <td>
+                  {{ post.title }}
+                </td>
+                <td class="text-wrap">
+                  {{ post.content }}
+                </td>
+                <td>
+                  <ul class="list-unstyled mb-0">
+                    <li class="list-inline-item">
+                      <button
+                        (click)="navigateToView(post.id)"
+                        class="comments btn btn-outline-primary mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-eye"></i>
+                      </button>
+                    </li>
+
+                    <li class="list-inline-item">
+                      <button
+                        (click)="navigateToEdit(post.id)"
+                        class="comments btn btn-outline-info mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-pencil"></i>
+                      </button>
+                    </li>
+                    <li class="list-inline-item">
+                      <button
+                        (click)="open(post.id, post.title)"
+                        class="comments btn btn-outline-danger mx-3 px-2 py-1"
+                        href="javascript:void(0)"
+                      >
+                        <i style="font-size: 25px" class="mdi mdi-delete"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <span
+          *ngIf="loading"
+          class="visually-hidden spinner-grow text-primary spinner-border"
+        ></span>
+      </div>
+    </div>
+  </div>
+</div>
