@@ -91,7 +91,7 @@ export class UserComponent implements OnInit {
   fetchUserInformation() {
     this.http
       .get<any>(
-        "https://pedro-app-rest-api.herokuapp.com/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c"
+        "https://pedro-app-rest-api.herokuapp.com/user/472a8678-9657-4706-bdc6-111b4750f653"
       )
       .subscribe(
         (response) => {
@@ -112,7 +112,7 @@ export class UserComponent implements OnInit {
   updateUserInformation() {
     this.http
       .patch<any>(
-        "https://pedro-app-rest-api.herokuapp.com/user/3f647a2d-b5d5-4d78-ab15-28d2b3e8a76c",
+        "https://pedro-app-rest-api.herokuapp.com/user/472a8678-9657-4706-bdc6-111b4750f653",
         this.userForm.value
       )
       .subscribe(

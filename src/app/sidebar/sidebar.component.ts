@@ -10,7 +10,7 @@ export interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
   { path: "user", title: "User Profile", icon: "nc-single-02", class: "" },
   { path: "posts", title: "Posts", icon: "nc-paper", class: "" },
-  { path: "about_me", title: "About me", icon: "nc-tile-56", class: "" },
+  // { path: "about_me", title: "About me", icon: "nc-tile-56", class: "" },
 ];
 
 @Component({
